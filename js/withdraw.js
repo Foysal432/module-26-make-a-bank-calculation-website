@@ -18,22 +18,31 @@ const withdrawField = document.getElementById('withdraw-input')
 const withdrawFieldString = withdrawField.value;
 // step-2.5
 const newWithdrawFiledAmount = parseFloat(withdrawFieldString);
+// step-7: clear the input field
+withdrawField.value =''
+if (isNaN(newWithdrawFiledAmount)) {
+    alert('please provide a valid ')
+    return;
+}
 // step-3
 const getPreviousWithdrawElement = document.getElementById('withdraw-amount');
 const getPreviousWithdrawString = getPreviousWithdrawElement.innerText;
 const getPreviousWithdraw = parseFloat(getPreviousWithdrawString);
-// step-4
-const newTotalWithdraw = getPreviousWithdraw + newWithdrawFiledAmount;
-// step-4.5
-getPreviousWithdrawElement.innerText = newTotalWithdraw;
+
 
 // step-5
 const totalBalanceElement = document.getElementById('balance-total');
 const TotalBalanceString = totalBalanceElement.innerText;
 const totaPreviouslBalance = parseFloat(TotalBalanceString);
+
+
+// step-4
+const newTotalWithdraw = getPreviousWithdraw + newWithdrawFiledAmount;
+// step-4.5
+getPreviousWithdrawElement.innerText = newTotalWithdraw;
+
 // step-6
 const currentBalance = totaPreviouslBalance - newTotalWithdraw;
 totalBalanceElement.innerText = currentBalance
-// step-7: clear the input field
-withdrawField.value =''
+
 })
